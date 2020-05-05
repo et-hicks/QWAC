@@ -44,8 +44,6 @@ module tileEngTest();
 		reset = 0;
 		// THERE IS A BETTER WAY
 		clock = ~clock; #1; // turn off
-		
-		
 		clock = ~clock; #1; // turn on
 		clock = ~clock; #1; // turn off
 		{in_vec[0], in_vec[1], in_vec[2], in_vec[3]} =  {`BITS'h2, `BITS'h2, `BITS'h2, `BITS'h2};

@@ -9,7 +9,7 @@ module vv_ops
      input         [1:0]          control,
      input  signed [IN_BITS-1:0]  vec_a   [VEC_LEN-1:0],
      input  signed [IN_BITS-1:0]  vec_b   [VEC_LEN-1:0],
-     output signed [OUT_BITS:0]   out_vec [VEC_LEN-1:0]
+     output signed [OUT_BITS-1:0] out_vec [VEC_LEN-1:0]
      );
      
      wire signed [OUT_BITS-1:0] vv_mulled  [VEC_LEN-1:0];
@@ -37,13 +37,13 @@ module vv_ops
                             vv_holder = vv_mulled; 
                       end
             2'b01   : begin 
-                            vv_holder = vv_mulled; 
+                            vv_holder = vv_added; 
                       end
             2'b10   : begin 
-                            vv_holder = vv_mulled; 
+                            vv_holder = a_subbed_b; 
                       end
             2'b11   : begin 
-                            vv_holder = vv_mulled; 
+                            vv_holder = b_subbed_a; 
                       end
             default   : begin 
                             vv_holder = vec_a;
