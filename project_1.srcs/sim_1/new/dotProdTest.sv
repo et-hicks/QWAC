@@ -14,8 +14,8 @@ module dotProdTest();
 	   $dumpfile("dump.vcd"); //Setup file dump (for waveform viewer)
 	   $dumpvars; //Dump signals to dumpfile
 	   
-	   {in_vec[0], in_vec[1], in_vec[2], in_vec[3]} =  {`BITS'ha, `BITS'ha, `BITS'ha, `BITS'ha};
-	   {in_matrix[0], in_matrix[1], in_matrix[2], in_matrix[3]} =  {`BITS'h1, `BITS'ha, `BITS'ha, `BITS'ha};
+	   {in_vec[0], in_vec[1], in_vec[2], in_vec[3]} =  {`BITS'h1, `BITS'h1, `BITS'h1, `BITS'h1};
+	   {in_matrix[0], in_matrix[1], in_matrix[2], in_matrix[3]} =  {`BITS'h1, `BITS'h1, `BITS'h1, `BITS'h1};
 	   #1;
 	   
 	   $display("\t\t\tThe input matrix is as follows\n");
@@ -43,13 +43,16 @@ module dotProdTest();
 		{in_vec[0], in_vec[1], in_vec[2], in_vec[3]} =  {`BITS'h0, `BITS'h0, `BITS'h0, `BITS'h0};
 		clock = ~clock; #1; // turn off
 		clock = ~clock; #1; // turn on
-		{in_vec[0], in_vec[1], in_vec[2], in_vec[3]} =  {`BITS'ha, `BITS'ha, `BITS'ha, `BITS'ha};
+		{in_vec[0], in_vec[1], in_vec[2], in_vec[3]} =  {`BITS'h1, `BITS'h1, `BITS'h1, `BITS'h1};
+		{in_matrix[0], in_matrix[1], in_matrix[2], in_matrix[3]} =  {`BITS'h1, `BITS'h1, `BITS'h1, `BITS'h1};
 		clock = ~clock; #1; // turn off
 		clock = ~clock; #1; // turn on
 		{in_vec[0], in_vec[1], in_vec[2], in_vec[3]} =  {`BITS'h0, `BITS'h0, `BITS'h0, `BITS'h0};
 		clock = ~clock; #1; // turn off
 		clock = ~clock; #1; // turn on
 		clock = ~clock; #1; // turn off
+		{in_vec[0], in_vec[1], in_vec[2], in_vec[3]} =  {`BITS'h2, `BITS'h2, `BITS'h2, `BITS'h2};
+		{in_matrix[0], in_matrix[1], in_matrix[2], in_matrix[3]} =  {`BITS'h2, `BITS'h2, `BITS'h2, `BITS'h2};
 		clock = ~clock; #1; // turn on
 		clock = ~clock; #1; // turn off
 		clock = ~clock; #1; // turn on
