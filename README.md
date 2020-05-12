@@ -1,3 +1,5 @@
+#### Final report incoming. I'm putting on the final touches.
+
 ### Note:
 The only code I wrote is the system verilog code and the verilog header files. HThere is a 'comes with the box' pll from Altera, but likewise that should be ignored. 
 
