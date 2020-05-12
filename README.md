@@ -1,7 +1,7 @@
 ### Note:
 The only code I wrote is the system verilog code and the verilog header files. HThere is a 'comes with the box' pll from Altera, but likewise that should be ignored. 
 
-#QWAC
+# QWAC
 
 A neural processing unit based off of Microsoft's Brainwave, with some things added and other things changed. Please read the final report for more information concerning the differences and similarities. 
 
