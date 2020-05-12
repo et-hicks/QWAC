@@ -1,7 +1,7 @@
 // Made to wrap a bunch of vector-vector operations together. 
 // TODO: test this a lil
 
-`include "../../constants.vh"
+`include "constants.vh"
 
 module vv_ops
     #(parameter IN_BITS = `BITS, OUT_BITS = `BITS, VEC_LEN = `VEC_LEN)
@@ -21,7 +21,7 @@ module vv_ops
      
      genvar i;
      generate 
-        for (i = 0; i < VEC_LEN; i = i + 1) begin
+        for (i = 0; i < VEC_LEN; i = i + 1) begin : vector_ops_generation
             assign vv_mulled[i]  = vec_a[i] * vec_b[i];
             assign vv_added[i]   = vec_a[i] + vec_b[i];
             assign a_subbed_b[i] = vec_a[i] - vec_b[i];

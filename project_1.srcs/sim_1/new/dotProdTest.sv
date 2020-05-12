@@ -60,7 +60,7 @@ module dotProdTest();
 		clock = ~clock; #1; // turn on
 		$display("Finished with some testing");
 		// Am expecting this to fail the first dozen or so times
-		$display("out_vec = %d%d%d%d\n",out_vec[0], out_vec[1], out_vec[2], out_vec[3]); #1;
+		$display("out_vec = %d\n", out_vec); #1;
 	   $finish();
 	end
 endmodule

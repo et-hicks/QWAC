@@ -6,3 +6,4 @@ project_1.sim/
 *.jou
 *.log
 project_1.runs/
+*.bak

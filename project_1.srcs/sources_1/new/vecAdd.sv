@@ -9,13 +9,15 @@ module vecAdd
         input signed  [IN_BITS-1:0]  in_vec  [VEC_LEN-1:0],
         output signed [OUT_BITS-1:0] out_sum
     );
-    
+  
+  wire [OUT_BITS-1:0] max;
   genvar i;
   // Untested with signed wire
   wire signed [OUT_BITS-1:0] temp_summation_array [VEC_LEN-2 : 0]; //container for all sumation steps
   wire [OUT_BITS-1:0] re_lu;
   generate
     assign temp_summation_array[0] = in_vec[0] + in_vec[1];
+    assign max = (in_vec[0] > in_vec[1]) ? in_vec[0] : in_vec[1];
     for(i=0; i<VEC_LEN-2; i=i+1) begin
       assign temp_summation_array[i+1] = temp_summation_array[i] + in_vec[i+2];
     end

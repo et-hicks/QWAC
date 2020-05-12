@@ -1,12 +1,12 @@
 // Give this a matrix and vector and it will multiply them together, returning the resutling vector. 
 // Final vector length is, according to LinAlg, as long as the columns of the input matrix
 
-`include "../../constants.vh"
+`include "constants.vh"
 // It appears that this is working, I think
 module tileEng
 	#(parameter VEC_LEN = 4, MAT_R = 4, IN_BITS = 4, OUT_BITS = 4, MAT_C = VEC_LEN)
 
-	 (input clock, rst,
+	 (input clock, reset,
 	  input  signed [IN_BITS-1:0]  in_vec[VEC_LEN-1:0],
 	  input  signed [OUT_BITS-1:0] mat[MAT_R-1:0][MAT_C-1:0],
 	  output signed [OUT_BITS-1:0] out_vec[MAT_R-1:0]
@@ -17,15 +17,11 @@ module tileEng
 
 
 	 genvar row;
-	 genvar col;
 	 generate
-	 	for (row = 0; row < MAT_R; row = row + 1) begin
-//			for (col = 0; col < MAT_C; col = col + 1) begin
-//				assign matVec[col] = mat[row][col];
-//			end
+	 	for (row = 0; row < MAT_R; row = row + 1) begin : making_the_dots
 			dotProdEng #(IN_BITS, OUT_BITS, VEC_LEN)
 			dotting
-			(.clock(clock), .reset(rst), .vec(in_vec), .mat_vec(mat[row]), .dotted(dotProds[row]));
+			(.clock(clock), .reset(reset), .vec(in_vec), .mat_vec(mat[row]), .dotted(dotProds[row]));
 		end
 	endgenerate
 

@@ -20,7 +20,7 @@ module dotProdEng
 	// Pipeline #1: multiplying everything then storing it into a vector register
 		genvar row;
 		generate
-  			for (row = 0; row < VEC_LEN; row = row + 1) begin
+  			for (row = 0; row < VEC_LEN; row = row + 1) begin : making_more_stuff
   			// Super, Super mayber kinda sorta consider taking this out
   			// I want to avoid a datarace at all costs
           always @(posedge clock) begin
@@ -36,7 +36,7 @@ module dotProdEng
   wire signed [OUT_BITS-1:0] temp_summation_array [VEC_LEN-2 : 0]; //container for all sumation steps
   generate
     assign temp_summation_array[0] = mulled[0] + mulled[1];
-    for(i=0; i<VEC_LEN-2; i=i+1) begin
+    for(i=0; i<VEC_LEN-2; i=i+1) begin : making_even_more_stuff_part_NEXT
       assign temp_summation_array[i+1] = temp_summation_array[i] + mulled[i+2];
     end
   endgenerate
